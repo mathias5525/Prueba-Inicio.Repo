@@ -2,7 +2,7 @@
 
 Ha comenzado el repositorio. 
 
-'''sh
+```sh
     cd Documents
     mkdir Proyectos
     git clone https://github.com/mathias5525/Prueba-Inicio.Repo.git
@@ -14,15 +14,16 @@ Ha comenzado el repositorio.
     git staus
     git add .
     git commit -m "Creacion del readme"
+```
 
-'''
 ## Agregamos este trabajo en el readme online
 
 > ¿Como hacemos este?
 
 Ingresamos al repositorio y luego solo presionamos punto <br>
 
-'''sh
+```sh
     .
-'''
+```
+
 Ingresamos toda esta informacion y terminamos.
