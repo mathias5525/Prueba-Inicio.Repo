@@ -25,4 +25,26 @@ Puedes abrir este archivo con un editor de texto (como el Bloc de notas o VS Cod
 ## Comandos básicos de Git
 
 ```bash
-git branch
+git branch  # Ver en qué rama estamos actualmente
+git checkout master  # Cambiar a la rama master
+git branch -M main  # Cambiar el nombre de la rama master a main
+git remote add origin git@github.com:n  # Agregar el repositorio remoto
+git remote -v  # Verificar si el repositorio remoto está correctamente conectado
+git merge segunda  # Fusionar los cambios de la rama segunda en main
+git commit -am "Uso de GitHub parte 20" #  Realizar un commit con un mensaje descriptivo
+git push origin main  # Subir los cambios a GitHub
+```
+
+Cambio de nombre de rama principal en GitHub
+
+Cuando renombramos la rama master a main, puede ocurrir que en el repositorio de GitHub se creen dos ramas: master y main.
+
+Para corregirlo:
+
+Ve al repositorio en GitHub.
+
+Entra a Settings → Branches.
+
+Cambia la rama principal (default branch) a main.
+
+Luego de esto, puedes eliminar la rama master.
