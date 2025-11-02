@@ -1,7 +1,7 @@
 # Comienza el Readme
 ---
 # Clase 1
----
+
 
 Ha comenzado el repositorio. 
 
@@ -32,8 +32,9 @@ Ingresamos al repositorio y luego solo presionamos punto <br>
 Ingresamos toda esta informacion y terminamos.
 
 ---
+
 # Clase 2
----
+
 
 # Cargar la llave SSH pública en GitHub
 
@@ -87,8 +88,9 @@ Cambia la rama principal (default branch) a main.
 Luego de esto, puedes eliminar la rama master.
 
 ---
+
 # Clase 3
----
+
 Cambios en GitHub: de master a main
 
 El escritor Argentino Julio Cortázar afirma que las palabras tienen color y peso. Por otro lado, los sinónimos existen por definición, pero no expresan lo mismo. Feo no es lo mismo que desagradable, ni aromático es lo mismo que oloroso.
@@ -142,8 +144,8 @@ sudo apt-get install gitk
 Recuerda que podemos ver gráficamente nuestro entorno y flujo de trabajo local con Git utilizando el comando gitk. Gitk fue el primer visor gráfico que se desarrolló para ver de manera gráfica el historial de un repositorio de Git.
 
 ---
+
 # Clase 4
----
 
 Tu primer push
 La creación de las SSH es necesario solo una vez por cada computadora. Aquí conocerás cómo conectar a GitHub usando SSH.
@@ -190,8 +192,8 @@ setting -> colaborators -> ingresar contraseña o un F2A de verificación y envi
 Del otro lado el usuario invitado solo debe aceptar y listo, ya puede participar del proyecto haciendo commit.
 
 ---
-Clase 5
----
+
+# Clase 5
 
 Git tag y versiones en GitHub
 
@@ -257,5 +259,87 @@ Esto eliminará la etiqueta identificada por en el repositorio local.
 En resumen, las etiquetas en Git son esenciales para asignar versiones y capturar instantáneas importantes en el historial de un proyecto. Aprender a crear, listar, compartir y eliminar etiquetas mejorará tu flujo de trabajo con Git.
 
 ---
-Clase 6
+
+# Clase 6
+
+Error con los tags
+Investigación: ¿Qué pasa si por error cargamos un tag dos veces?
+
+1. Si el tag ya existe en el remoto y apunta al mismo commit
+
+No pasa nada.
+Git simplemente te dirá algo como:
+
+*Everything up-to-date*
+
+o ignorará la acción, porque el tag ya apunta al mismo commit.
+
+2. Si el tag existe pero apunta a otro commit diferente
+
+Entonces Git rechaza el push por defecto para evitar sobrescribir el tag remoto.
+
+El mensaje típico es algo así:
+
+*! [rejected]        v1.0 -> v1.0 (already exists)*
+*error: failed to push some refs to 'origin'*
+*hint: Updates were rejected because the tag already exists in the remote.*
+
+Esto ocurre porque los tags en Git están pensados como referencias inmutables (no deberían cambiar una vez creados).
+
+3. Si realmente querés actualizar o reemplazar el tag remoto
+
+Podés forzar el push con:
+
+```bash
+git push origin -f v1.0
+```
+Pero no se recomienda hacerlo si otros colaboradores ya están usando ese tag, ya que puede causar inconsistencias (por ejemplo, alguien podría tener el viejo tag apuntando a otro commit).
+
+4. Buenas prácticas
+
+Evitá sobrescribir tags publicados.
+Si necesitás corregir algo, creá un nuevo tag (por ejemplo, v1.0.1 o v1.0-fix).
+Podés eliminar un tag remoto si fue un error:
+
+```bash
+git push origin :refs/tags/v1.0
+```
+y luego volver a crearlo correctamente.
+
 ---
+
+# Clase 7-8
+
+## Manejo de ramas en GitHub
+
+Es bueno recordar sobre gitk. Si no te funciona el comando gitk es posible no lo tengas instalado por defecto. Esta es una herramienta muy util a la hora de ver graficamente nuestro trabajo y así entender mejor todo el funcionamiento de ramas, merge y todo el flujo en un formato ordenado.
+
+Para instalar gitk debemos ejecutar los siguientes comandos:
+
+```sh
+
+sudo apt-get update
+
+sudo apt-get install gitk
+
+```
+
+Repasa: ¿Qué es Git?
+
+Las ramas nos permiten hacer cambios a nuestros archivos sin modificar la versión principal (main). Puedes trabajar con ramas que nunca envías a GitHub, así como pueden haber ramas importantes en GitHub que nunca usas en el repositorio local. Lo crucial es que aprendas a manejarlas para trabajar profesionalmente.
+
+Si, estando en otra rama, modificamos los archivos y hacemos commit, tanto el historial(git log) como los archivos serán afectados. La ventaja que tiene usar ramas es que las modificaciones solo afectarán a esa rama en particular. Si luego de “guardar” los archivos(usando commit) nos movemos a otra rama (git checkout otraRama) veremos como las modificaciones de la rama pasada no aparecen en la otraRama.
+
+Comandos para manejo de ramas en GitHub
+Crear una rama:
+
+```sh
+git branch branchName #Crear una rama
+git checkout -b branchName #También crea una rama
+git checkout branchName #Movernos a otra rama 
+git push origin branchName #Publicar una rama local al repositorio remoto
+```
+
+Recuerda que podemos ver gráficamente nuestro entorno y flujo de trabajo local con Git utilizando el comando gitk. Gitk fue el primer visor gráfico que se desarrolló para ver de manera gráfica el historial de un repositorio de Git.
+
+
